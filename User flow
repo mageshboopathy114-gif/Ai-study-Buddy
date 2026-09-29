@@ -1,0 +1,74 @@
+AI StudyBuddy – User Flow
+START
+  ↓
+User Registration / Login
+  ↓
+Student Dashboard
+  ↓
+Enter Study Topic
+  ↓
+AI Analyzes the Topic
+  ↓
+Choose Learning Option
+  ├── AI Notes
+  ├── Question & Answer
+  ├── Quiz Generation
+  ├── Study Plan
+  └── Topic Explanation
+  ↓
+AI Generates Personalized Content
+  ↓
+User Studies / Attempts Quiz
+  ↓
+AI Evaluates Performance
+  ↓
+Progress Tracking
+  ↓
+Personalized Recommendations
+  ↓
+Logout
+  ↓
+END
+Simple User Flow Coding
+def ai_studybuddy():
+    print("Welcome to AI StudyBuddy")
+
+    username = input("Enter username: ")
+    password = input("Enter password: ")
+
+    if login(username, password):
+        print("Login Successful")
+
+        while True:
+            print("\n1. AI Notes")
+            print("2. Ask Question")
+            print("3. Generate Quiz")
+            print("4. Study Plan")
+            print("5. View Progress")
+            print("6. Logout")
+
+            choice = input("Enter your choice: ")
+
+            if choice == "1":
+                generate_notes()
+
+            elif choice == "2":
+                ask_ai_question()
+
+            elif choice == "3":
+                generate_quiz()
+
+            elif choice == "4":
+                create_study_plan()
+
+            elif choice == "5":
+                show_progress()
+
+            elif choice == "6":
+                print("Logged out successfully")
+                break
+
+            else:
+                print("Invalid choice")
+    else:
+        print("Invalid Login")
