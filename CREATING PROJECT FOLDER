@@ -1,0 +1,72 @@
+AI StudyBuddy – Creating Project Folder
+
+Project Folder Structure:
+
+AI-StudyBuddy/
+│
+├── app.py
+│
+├── model/
+│   └── student_model.py
+│
+├── view/
+│   └── study_view.py
+│
+├── controller/
+│   └── study_controller.py
+│
+├── templates/
+│   ├── login.html
+│   ├── dashboard.html
+│   └── quiz.html
+│
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   └── js/
+│       └── script.js
+│
+├── database/
+│   └── studybuddy.db
+│
+└── README.md
+
+Creating Folder Using Python
+
+import os
+
+folders = [
+    "AI-StudyBuddy/model",
+    "AI-StudyBuddy/view",
+    "AI-StudyBuddy/controller",
+    "AI-StudyBuddy/templates",
+    "AI-StudyBuddy/static/css",
+    "AI-StudyBuddy/static/js",
+    "AI-StudyBuddy/database"
+]
+
+for folder in folders:
+    os.makedirs(folder, exist_ok=True)
+
+print("AI StudyBuddy project folders created successfully!")
+
+Terminal Command
+
+mkdir AI-StudyBuddy
+cd AI-StudyBuddy
+
+mkdir model view controller templates database
+mkdir static
+mkdir static/css static/js
+
+touch app.py README.md
+touch model/student_model.py
+touch view/study_view.py
+touch controller/study_controller.py
+touch templates/login.html
+touch templates/dashboard.html
+touch templates/quiz.html
+touch static/css/style.css
+touch static/js/script.js
+
+Flow: Create Project → Create MVC Folders → Add Files → Start Development
