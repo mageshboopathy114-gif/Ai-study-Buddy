@@ -1,0 +1,88 @@
+AI StudyBuddy – MVC Pattern Coding
+1. Model – StudentModel.py
+class StudentModel:
+    def __init__(self):
+        self.name = ""
+        self.topic = ""
+        self.score = 0
+
+    def set_student(self, name, topic):
+        self.name = name
+        self.topic = topic
+
+    def get_student(self):
+        return self.name, self.topic
+
+    def set_score(self, score):
+        self.score = score
+
+    def get_score(self):
+        return self.score
+2. View – StudyView.py
+class StudyView:
+
+    def show_welcome(self):
+        print("===== AI StudyBuddy =====")
+
+    def get_student_details(self):
+        name = input("Enter Student Name: ")
+        topic = input("Enter Study Topic: ")
+        return name, topic
+
+    def show_result(self, name, topic, score):
+        print("\nStudent Name :", name)
+        print("Study Topic  :", topic)
+        print("Quiz Score   :", score)
+3. Controller – StudyController.py
+class StudyController:
+
+    def __init__(self, model, view):
+        self.model = model
+        self.view = view
+
+    def start(self):
+        self.view.show_welcome()
+
+        name, topic = self.view.get_student_details()
+
+        self.model.set_student(name, topic)
+
+        print("\nAI is generating study material...")
+        print("Notes and quiz generated successfully.")
+
+        score = int(input("Enter Quiz Score: "))
+        self.model.set_score(score)
+
+        student_name, study_topic = self.model.get_student()
+        final_score = self.model.get_score()
+
+        self.view.show_result(
+            student_name,
+            study_topic,
+            final_score
+        )
+4. Main Program – main.py
+from StudentModel import StudentModel
+from StudyView import StudyView
+from StudyController import StudyController
+
+model = StudentModel()
+view = StudyView()
+
+controller = StudyController(model, view)
+
+controller.start()
+MVC Flow
+        USER
+          ↓
+        VIEW
+          ↓
+     CONTROLLER
+       ↙     ↘
+   MODEL     VIEW
+       ↘     ↙
+     RESULT
+MVC = Model + View + Controller
+Model: Stores student data and quiz score.
+View: Displays the UI and gets user input.
+Controller: Connects Model and View and controls the application flow.
